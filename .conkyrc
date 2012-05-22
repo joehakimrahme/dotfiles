@@ -1,0 +1,71 @@
+# conky configuration
+#
+# The list of variables has been removed from this file in favour
+# of keeping the documentation more maintainable.
+# Check http://conky.sf.net for an up-to-date-list.
+#
+# For ideas about how to modify conky, please see:
+# http://crunchbanglinux.org/forums/topic/59/my-conky-config/
+#
+# For help with conky, please see:
+# http://crunchbanglinux.org/forums/topic/2047/conky-help/
+#
+# Enjoy! :)
+##############################################
+#  Settings
+##############################################
+background no
+use_xft yes
+xftfont monospace:size=9
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 200 200
+#maximum_width 240
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color cfcfcf
+default_shade_color 000000
+default_outline_color d9d7d6
+alignment top_right
+gap_x 12
+gap_y 24
+no_buffers yes
+uppercase no
+cpu_avg_samples 3
+override_utf8_locale yes
+##############################################
+#  Output
+##############################################
+TEXT
+rahmu-laptop
+${hr}
+Host:$alignr$nodename
+Uptime:$alignr$uptime
+RAM:$alignr$mem/$memmax
+Swap usage:$alignr$swap/$swapmax
+root space:$alignr${fs_used /}/${fs_size /}
+/home:$alignr${fs_used /home}/${fs_size /home}
+CPU usage:$alignr${cpu cpu0}% $alignr${cpu cpu1}% $alignr${cpu cpu2}% $alignr${cpu cpu3}%
+${font}${color lightgrey}Internal Temp:${color light grey} ${acpitemp}°C
+${hr}
+
+GMail Notifications
+Mail - ${color 95956B}${execi 300 python ~/bin/gmail.py} ${color FFFFFF} 
+
+${hr}
+${color}Name              PID     CPU%   MEM%
+${color lightgrey} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${color} ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+${color}Mem usage
+${color lightgrey} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+${color} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
